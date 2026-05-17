@@ -7,8 +7,8 @@
 
 export const CONTACT = {
   // Primary phone number (highlighted everywhere)
-  primary: "+917013123733",
-  primaryFormatted: "+91 70131 23733",
+  primary: "+917013123933",
+  primaryFormatted: "+91 70131 23933",
 
   // Secondary phone number
   secondary: "+919848460713",
@@ -18,7 +18,7 @@ export const CONTACT = {
   email: "mlwwmohan32@gmail.com",
 
   // WhatsApp (uses primary number, no + prefix for wa.me links)
-  whatsapp: "917013123733",
+  whatsapp: "917013123933",
   whatsappGreeting:
     "Hello Advocate Mohan garu, I would like to schedule a consultation.",
 
