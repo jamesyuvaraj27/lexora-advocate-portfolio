@@ -31,7 +31,7 @@ import { FaWhatsapp } from "react-icons/fa";
 import { CONTACT } from "../data/contact";
 
 // Image asset
-import consultationBg from "../assets/images/consultation-legal-desk.png";
+import consultationBg from "../assets/images/consultation-legal-desk.webp";
 
 // Case types for the dropdown
 const caseTypes = [

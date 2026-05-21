@@ -1,3 +1,4 @@
+import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import SectionHeading from "../components/SectionHeading";
 import { Phone, Mail, MapPin, Clock, ExternalLink, Navigation, PhoneCall, MessageCircle } from "lucide-react";
@@ -34,6 +35,19 @@ const contactInfo = [
 ];
 
 export default function Contact() {
+  const [mapLoaded, setMapLoaded] = useState(false);
+  const [mapError, setMapError] = useState(false);
+
+  useEffect(() => {
+    // If the map hasn't loaded after 6 seconds, we assume it failed or is blocked by privacy tools
+    const timer = setTimeout(() => {
+      if (!mapLoaded) {
+        setMapError(true);
+      }
+    }, 6000);
+    return () => clearTimeout(timer);
+  }, [mapLoaded]);
+
   return (
     <section id="contact" className="relative py-24 md:py-32 overflow-hidden">
       {/* Background */}
@@ -131,17 +145,42 @@ export default function Contact() {
             className="relative rounded-2xl overflow-hidden border border-gold/20 min-h-[400px] shadow-[0_0_30px_rgba(212,175,55,0.1)] group"
           >
             <div className="absolute inset-0 bg-gold/5 group-hover:bg-transparent transition-colors duration-700 z-10 pointer-events-none" />
-            <iframe
-              title="Advocate Mohan - Office Location"
-              src={CONTACT.mapsEmbed}
-              width="100%"
-              height="100%"
-              style={{ border: 0, minHeight: "100%", position: "absolute", inset: 0 }}
-              allowFullScreen
-              loading="lazy"
-              referrerPolicy="no-referrer-when-downgrade"
-              className="grayscale-[0.5] group-hover:grayscale-0 transition-all duration-700"
-            />
+            {mapError ? (
+              <div className="absolute inset-0 flex flex-col items-center justify-center p-8 bg-black/90 backdrop-blur-md text-center z-20">
+                <div className="w-16 h-16 rounded-full bg-gold/10 flex items-center justify-center mb-6 border border-gold/30 shadow-[0_0_20px_rgba(212,175,55,0.3)] animate-pulse">
+                  <MapPin className="w-8 h-8 text-gold" />
+                </div>
+                <h3 className="text-xl font-bold text-white mb-2 tracking-wide font-serif">
+                  Office Location
+                </h3>
+                <p className="text-gray-text text-sm max-w-sm mb-8 leading-relaxed">
+                  Interactive map loading failed or is blocked by privacy tools. Please click below to view our location.
+                </p>
+                <a
+                  href={CONTACT.mapsFallbackUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="btn-primary flex items-center justify-center gap-2 px-8 py-3.5 rounded-full hover:shadow-[0_0_25px_rgba(212,175,55,0.4)] transition-all duration-300 group/btn"
+                >
+                  <Navigation className="w-4 h-4 transition-transform duration-300 group-hover/btn:-translate-y-0.5 group-hover/btn:translate-x-0.5" />
+                  Open Office Location in Google Maps
+                </a>
+              </div>
+            ) : (
+              <iframe
+                title="Advocate Mohan - Office Location"
+                src={CONTACT.mapsEmbed}
+                width="100%"
+                height="100%"
+                style={{ border: 0, minHeight: "100%", position: "absolute", inset: 0 }}
+                allowFullScreen
+                loading="lazy"
+                referrerPolicy="no-referrer-when-downgrade"
+                className="grayscale-[0.5] group-hover:grayscale-0 transition-all duration-700"
+                onLoad={() => setMapLoaded(true)}
+                onError={() => setMapError(true)}
+              />
+            )}
             {/* Map overlay gradient */}
             <div className="absolute inset-0 pointer-events-none bg-gradient-to-t from-primary/80 via-transparent to-transparent z-10" />
             

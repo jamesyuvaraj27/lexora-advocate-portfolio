@@ -5,7 +5,7 @@ import { FaFacebookF, FaLinkedinIn, FaInstagram, FaWhatsapp } from "react-icons/
 import { CONTACT, getWhatsAppUrl } from "../data/contact";
 
 // Logo asset
-import logoPrimary from "../assets/icon/logo-primary.png";
+import logoPrimary from "../assets/icon/logo-primary.webp";
 
 const quickLinks = [
   { name: "Home", to: "hero" },

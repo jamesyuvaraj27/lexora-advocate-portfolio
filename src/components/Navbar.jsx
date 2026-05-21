@@ -4,7 +4,7 @@ import { Link } from "react-scroll";
 import { Menu, X } from "lucide-react";
 
 // Logo asset
-import logoPrimary from "../assets/icon/logo-primary.png";
+import logoPrimary from "../assets/icon/logo-primary.webp";
 
 const navLinks = [
   { name: "Home", to: "hero" },

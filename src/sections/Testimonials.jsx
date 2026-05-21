@@ -5,7 +5,7 @@ import SectionHeading from "../components/SectionHeading";
 import { ChevronLeft, ChevronRight, Star, Quote } from "lucide-react";
 
 // Image asset
-import deskSessionBg from "../assets/images/advocate-desk-session.png";
+import deskSessionBg from "../assets/images/advocate-desk-session.webp";
 
 export default function Testimonials() {
   const [current, setCurrent] = useState(0);

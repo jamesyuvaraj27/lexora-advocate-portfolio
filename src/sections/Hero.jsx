@@ -6,9 +6,9 @@ import AnimatedButton from "../components/AnimatedButton";
 import { CONTACT } from "../data/contact";
 
 // Image assets
-import heroBgDesktop from "../assets/images/hero-courtroom-bg.png";
-import heroBgMobile from "../assets/images/hero-courtroom-bg-mobile.png";
-import advocatePortrait from "../assets/images/advocate-portrait-primary.png";
+import heroBgDesktop from "../assets/images/hero-courtroom-bg.webp";
+import heroBgMobile from "../assets/images/hero-courtroom-bg-mobile.webp";
+import advocatePortrait from "../assets/images/advocate-portrait-primary.webp";
 
 function Particle({ style }) {
   return <div className="particle animate-float" style={style} />;

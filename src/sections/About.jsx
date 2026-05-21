@@ -3,8 +3,8 @@ import { Scale, Award, GraduationCap, MapPin, BadgeCheck } from "lucide-react";
 import SectionHeading from "../components/SectionHeading";
 
 // Image assets
-import advocatePortrait from "../assets/images/advocate-portrait-primary.png";
-import advocateCandid from "../assets/images/advocate-candid-office.png";
+import advocatePortrait from "../assets/images/advocate-portrait-primary.webp";
+import advocateCandid from "../assets/images/advocate-candid-office.webp";
 
 const highlights = [
   {
